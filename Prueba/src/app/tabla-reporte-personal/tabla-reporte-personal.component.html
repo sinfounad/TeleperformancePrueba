@@ -1,0 +1,83 @@
+
+
+<table>
+    <tr>
+
+        <th>Documento</th>
+        <th>Nombres y Apellidos</th>
+        <th>Fecha Inicio</th>
+        <th>Fecha Fin</th>
+        <th>Horario Inicio Turno</th>
+        <th>Horario Fin de Turno</th>
+        <th>Horario Inicio Hora Extra</th>
+        <th>Horario Fin de Hora Extra</th>
+        <th></th>
+    </tr>
+    <tr *ngFor= "let item of tablaReportePersonal">
+        <td>  {{item.Documento}}</td>
+        <td>  {{item.Nombres_Apellidos}}</td>
+        <td>  {{item.Fecha_inicio}}</td>
+        <td>  {{item.Fecha_finT}}</td>
+        <td>  {{item.Horario_inicioT}}</td>
+        <td>  {{item.Horario_finT}}</td>
+        <td>  {{item.Horario_Inicio_HoraExtra}}</td>
+        <td>  {{item.Horario_finHoraExtra}}</td>
+        <td>  {{item.Motivo_HoraExtra}}</td>
+     
+       
+
+    </tr>
+  
+
+
+    <tr>
+
+
+    </tr>
+</table>
+
+<form (submit)="addReporte($event)">
+    
+    <span>Documento</span>
+      <input type="text" name="Documento"  [(ngModel)]="reportePersonal.Documento" placeholder="Add Task" class="form-control">
+      <span>Nombre y Apellido</span>
+      <input type="text" name="Nombres_Apellidos"  [(ngModel)]="reportePersonal.Nombres_Apellidos" placeholder="Add Task" class="form-control">
+      <br>
+        <span>Fecha Inicio</span>
+        <input type="text" name="FechaInicio"  [(ngModel)]="reportePersonal.Fecha_inicio
+        " placeholder="Add Task" class="form-control">
+        <br>
+        <span>Fecha Fin</span>
+        <!--<input type="text" name="Fecha_fin1" [(ngModel)]="reportePersonal.Fecha_fin" placeholder="Add Task" class="form-control">-->
+        <br>
+        <span>HorarioInicioTurno</span>
+        <input [ngxTimepicker]="Horario_inicioT" [(ngModel)]="reportePersonal.Horario_inicioT" name="Horario_inicioT">
+        <ngx-material-timepicker #Horario_inicioT></ngx-material-timepicker>
+        <br>
+        <span>Horario_finTurno</span>
+        <input [ngxTimepicker]="Horario_finT" [(ngModel)]="reportePersonal.Horario_finT" name="Horario_finT">
+        <ngx-material-timepicker #Horario_finT></ngx-material-timepicker>
+        <br>
+        <span>Fin Horario_Inicio_HoraExtra</span>
+        <input [ngxTimepicker]="Horario_Inicio_HoraExtra" [(ngModel)]="reportePersonal.Horario_Inicio_HoraExtra" name="Horario_Inicio_HoraExtra">
+        <ngx-material-timepicker #Horario_Inicio_HoraExtra></ngx-material-timepicker>
+        <br>
+        <span>Horario_finHoraExtra </span>
+        <input [ngxTimepicker]="Horario_finHoraExtra" [(ngModel)]="reportePersonal.Horario_finHoraExtra" name="finHoraExtra">
+        <ngx-material-timepicker #Horario_finHoraExtra></ngx-material-timepicker>
+        <br>
+        <span>Motivo Hora Extra</span>
+        <input [(ngModel)]="reportePersonal.Motivo_HoraExtra" name="finHoraExtra">
+        
+            
+        <!--<input type="text" name="title"  [(ngModel)]="reportePersonal.Horario_finHoraExtra" placeholder="Add Task" class="form-control">
+        -->
+        <span>Motivo Hora Extra</span>
+       <input type="text" name="title"  [(ngModel)]="reportePersonal.Motivo_HoraExtra" placeholder="Add Task" class="form-control">
+     
+      
+       <button type="submit" class="btn btn-primary">Agregar</button>
+       
+      
+    
+     </form>
